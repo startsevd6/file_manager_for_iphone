@@ -12,7 +12,7 @@ def extract_number(input_string):
     return None
 
 
-path = input()
+path = input("Enter the path to the folder with photo and video files in the following format: drive://folder\n")
 os.chdir(path)
 print("\n\n\nall_files:\n\n\n", os.listdir(path="."))
 all_files = os.listdir(path=".")
