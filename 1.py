@@ -36,6 +36,9 @@ print("\n")
 
 for i in range(len(original_files)):
     number1 = extract_number(original_files[i])
+    if original_files[i].endswith(".AAC"):
+        os.remove(path=f"{path}\\IMG_{number1}.AAC")
+        print(f"file IMG_{number1}.AAC deleted")
     print(f"file1: IMG_{number1}.JPG")
     for j in range(len(changed_files)):
         number2 = extract_number(changed_files[j])
