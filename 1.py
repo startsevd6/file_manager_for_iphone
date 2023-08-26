@@ -19,10 +19,13 @@ all_files = os.listdir(path=".")
 print("all_files: ", len(all_files))
 original_files, changed_files, other_files = [], [], []
 
+extension = input("Enter file extension (JPG - for photos, PNG - for screenshots)\n")
+
+
 for file_name in all_files:
-    if file_name.startswith("IMG_E") and file_name.endswith(".JPG"):
+    if file_name.startswith("IMG_E") and file_name.endswith("." + extension):
         changed_files.append(file_name)
-    elif file_name.startswith("IMG_") and file_name.endswith(".JPG"):
+    elif file_name.startswith("IMG_") and file_name.endswith("." + extension):
         original_files.append(file_name)
     else:
         other_files.append(file_name)
@@ -39,10 +42,10 @@ for i in range(len(original_files)):
     if original_files[i].endswith(".AAC"):
         os.remove(path=f"{path}\\IMG_{number1}.AAC")
         print(f"file IMG_{number1}.AAC deleted")
-    print(f"file1: IMG_{number1}.JPG")
+    print(f"file1: IMG_{number1}.{extension}")
     for j in range(len(changed_files)):
         number2 = extract_number(changed_files[j])
-        print(f"file2: IMG_E{number2}.JPG")
+        print(f"file2: IMG_E{number2}.{extension}")
         if number1 == number2:
-            os.remove(path=f"{path}\\IMG_{number1}.JPG")
+            os.remove(path=f"{path}\\IMG_{number1}.{extension}")
             print(f"file IMG_{number1}.JPG deleted")
